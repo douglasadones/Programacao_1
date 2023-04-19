@@ -3,8 +3,8 @@ número elevado ao segundo número. Não utilize a função de potência da ling
 
 base = int(input("Informe a base: "))
 expoente = int(input("Informe o expoente: "))
-potencia = base
+potencia = 1
 
-for multiplicacoes in range(expoente - 1):
+for multiplicacoes in range(expoente):
     potencia *= base
 print(potencia)

@@ -12,7 +12,5 @@ while True:
         num_negativo = True
         break
     acumulador_de_num += 1
-if num_negativo:
-    pass
-else:
+if acumulador_de_num == 5:
     print("Os dados foram inseridos com sucesso")
