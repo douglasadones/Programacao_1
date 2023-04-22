@@ -27,7 +27,7 @@ agora se rodar o arquivo "math.py":
 3. deposito         4. saque
 5. transferencia    6. relatório geral
 0. sair
------------------------------------------
+------------------------------------------
 
 UI DE CADA OPÇÃO:
 Ex: ########## SALDO EM CONTA ##########
@@ -36,3 +36,7 @@ try:
     n = float(input(""))
 except Exception as erro:
     print(f"Erro encontrado: ({erro})")
+else:
+    print("Teste")
+finally:
+    print("Teste 2")
