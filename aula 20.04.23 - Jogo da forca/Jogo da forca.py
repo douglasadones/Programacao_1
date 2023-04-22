@@ -93,6 +93,7 @@ while not game_over:
             vidas -= 1
         print(f"Errado! Você ainda tem {vidas} tentativas")
         print(grafico[vidas])
+        print(*palavra_escondida)
     if vidas == 0:
         game_over = True
     if not ('_' in palavra_escondida):
