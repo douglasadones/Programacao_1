@@ -21,8 +21,7 @@ string = input()
 string += "b"
 
 caractere_anterior = ""
-quant_a_momentaneo = 0
-quant_a = 0
+quant_a_momentaneo = quant_a = 0
 
 for caractere in range(len(string)):
     if string[caractere] == 'a':

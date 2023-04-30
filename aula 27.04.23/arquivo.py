@@ -43,4 +43,8 @@ def principal():
 
 
 if __name__ == "__main__":
-    principal()
+    # principal()
+
+    with open('teste.txt', 'w') as testando:
+        testando.write('testtest')
+        print('teste')
