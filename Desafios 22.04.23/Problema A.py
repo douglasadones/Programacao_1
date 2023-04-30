@@ -33,3 +33,24 @@ for caractere in range(len(string)):
         quant_a_momentaneo = 0
 
 print(quant_a)
+
+
+# Lendo um arquivo
+
+file = open('A_25', 'r')
+for linha in file:
+    somatorio = cont = 0
+    linha = linha.strip()
+    for letra in linha:
+        if letra == 'a':
+            cont += 1
+        elif cont > 1:
+            somatorio += cont
+            cont = 0
+        elif cont == 1:
+            cont = 0
+    if cont > 1:
+        somatorio += cont
+    print(somatorio, end=' -> ')
+    print(linha)
+    file.close()
