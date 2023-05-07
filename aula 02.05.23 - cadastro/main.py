@@ -58,7 +58,6 @@ def pesquisar(nome):
 
 
 def deletar(nome):
-    """Falta concluir essa ideia"""
     if pesquisar(nome):
         with open('cadastro.txt', 'r') as file:
             lista_cadastros = []
