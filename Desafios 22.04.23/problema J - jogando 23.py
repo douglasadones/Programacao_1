@@ -38,7 +38,7 @@ poss´ıvel Maria vencer a partida nessa pr´oxima rodada.
 # -------------------------------------- Cartas atualmente disponíveis ---------------------------------------------
 dict = {'1': 4, '2': 4, '3': 4, '4': 4, '5': 4, '6': 4, '7': 4,  '8': 4, '9': 4, '10': 4, '11': 4, '12': 4, '13': 4}
 
-# -------------------------------- Obtendo Dados ---------------------------------------
+# ------------------------------------------ Obtendo Dados -------------------------------------------------
 rodada = int(input())
 while not(1 <= rodada <= 8):
     rodada = int(input())
@@ -50,7 +50,7 @@ while not(1 <= int(cartas_maria[0]) <= 13 and 1 <= int(cartas_maria[1]) <= 13):
     cartas_maria = input().split()
 cartas_comuns = input().split()
 
-# --------------- Removendo as cartas usadas do baralho ---------------------------
+# ------------------------------ Removendo as cartas usadas do baralho -------------------------------------
 for c in cartas_joao:
     dict[c] -= 1
 for c in cartas_maria:
@@ -80,7 +80,7 @@ for c in cartas_joao:  # Somando todas as cartas do Joao
         soma_joao += int(c)
 soma_joao += sum_cart_comuns
 
-# ------------------------------------ Tratando Vitória/Derrota --------------------------------------------
+# ------------------------------------- Tratando Vitória/Derrota ---------------------------------------------
 
 if (soma_maria < 23) and (soma_joao < soma_maria) or soma_maria == soma_joao:  # Caso da Maria ganhar ou empate
     comum_necessaria = str(23 - soma_maria)
@@ -104,3 +104,4 @@ elif (soma_maria < 23) and (23 > soma_joao > soma_maria):  # Caso Joao perder ou
         print(-1)
 else:
     print(-1)
+    

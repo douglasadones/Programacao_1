@@ -26,7 +26,7 @@ def cadastrar():
 
 def mostrar():
     with open('cadastro.txt', 'r') as file:
-        print()
+        print('=' * 25)
         for info in file:
             lista = info.split()
             print(f'Nome: {lista[0]}\nFone: ({lista[1][0:2]}) {lista[1][2]}-{lista[1][3:7]}-{lista[1][7:]}'
@@ -45,7 +45,10 @@ def mostrar_cadastro_unico(cadastro):
                     print(f'Nome: {lista[0]}\nFone: ({lista[1][0:2]}) {lista[1][2]}-{lista[1][3:7]}-{lista[1][7:]}'
                           f'\nNascimento: {lista[2][0:2]}/{lista[2][2:4]}/{lista[2][4:]}')
         else:
-            print('Cadastro Inexistente')
+            print()
+            print('=' * 20)
+            print('CADASTRO INEXISTENTE')
+            print('=' * 20)
 
 
 def pesquisar(nome):
@@ -58,7 +61,6 @@ def pesquisar(nome):
 
 
 def deletar(nome):
-    """Falta concluir essa ideia"""
     if pesquisar(nome):
         with open('cadastro.txt', 'r') as file:
             lista_cadastros = []
@@ -74,7 +76,10 @@ def deletar(nome):
                 tratado = ' '.join(c)
                 file.write(tratado + '\n')
     else:
-        print('Cadastro Inexistente')
+        print()
+        print('=' * 20)
+        print('CADASTRO INEXISTENTE')
+        print('=' * 20)
 
 
 try:
