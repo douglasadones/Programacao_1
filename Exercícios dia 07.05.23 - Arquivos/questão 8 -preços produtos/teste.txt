@@ -1,0 +1,4 @@
+abacaxi 10
+melancia 10
+sacola 2.5
+maçã 3.5

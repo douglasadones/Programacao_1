@@ -24,4 +24,3 @@ if existe:
                 reorganizado.insert(0, palavra)
         for itens in reorganizado:
             inverso.write(itens)
-

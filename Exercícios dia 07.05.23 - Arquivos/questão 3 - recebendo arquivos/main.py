@@ -23,8 +23,6 @@ except:
     arq_inexistentes.append(arq_1)
 try:
     file2 = open(arq_2, 'r')
-    while file2 == '':
-        file2 = open(arq_2, 'r')
     file2.close()
     existe_2 = True
 except:
