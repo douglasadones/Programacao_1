@@ -17,12 +17,15 @@ except:
 if existe:
     contador = 0
     with open(arquivo, 'r') as file:
-        for linha in file:
+        for linha in file:  # String completa da linha
             ocorrencia = ''
-            for caractere in linha:
-                if caractere != ' ':
+            for caractere in linha:  # caractere por caractere da linha
+                if caractere.isalpha():
                     ocorrencia += caractere.lower()
-                if palavra in ocorrencia:
-                    contador += 1
-                    ocorrencia = ''
+                else:
+                    if palavra == ocorrencia:
+                        contador += 1
+                        ocorrencia = ''
+                    else:
+                        ocorrencia = ''
     print(contador)

@@ -19,4 +19,8 @@ if existe:
     with open('maiusculo.txt', 'w') as file1:
         with open(arquivo, 'r') as file2:
             for linhas in file2:
-                file1.write(linhas.upper())
+                for caractere in linhas:
+                    if caractere.isupper():
+                        file1.write(caractere)
+                    else:
+                        file1.write(caractere.upper())
