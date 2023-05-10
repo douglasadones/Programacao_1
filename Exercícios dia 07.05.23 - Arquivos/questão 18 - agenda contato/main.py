@@ -27,12 +27,14 @@ def verificando_vazio():
     return vazio
 
 
-opcoes = '''1 - Para inserir contato
+opcoes = ''' ------------------------- AGENDA DE CONTATOS -------------------------
+1 - Para inserir contato
 2 - Para remover contato
 3 - Para pesquisar um contato pelo nome
 4 - Para listar todos os contatos
 5 - Para listar os contatos que iniciam com determinada letra
-6 - Para listar os aniversariantes do mês'''
+6 - Para listar os aniversariantes do mês
+7 - Para sair'''
 
 try:
     file = open('contatos.txt', 'r')
@@ -50,8 +52,25 @@ while True:
         with open('contatos.txt', 'a') as file:
             file.write(nome + ' ' + fone + ' ' + data + '\n')
     elif op == 2:
+        nome_contato = input('Informe o nome: ')
+        nome_na_lista = False
         if not verificando_vazio():
-            pass
+            lista_cadastros = []
+            with open('contatos.txt', 'r') as file:
+                for c in file:
+                    tratado = c.split()
+                    lista_cadastros.extend([tratado])
+            for c in lista_cadastros:
+                if nome_contato in c:
+                    nome_na_lista = True
+                    lista_cadastros.pop(lista_cadastros.index(c))
+            if nome_na_lista:
+                with open('contatos.txt', 'w') as file:
+                    for c in lista_cadastros:
+                        file.write(c[0] + ' ' + c[1] + ' ' + c[2] + '\n')
+                print('\nCONTATO EXCLUIDO\n')
+            else:
+                print("\nNOME NÃO ENCONTRADO!\n")
         else:
             print('Agenda atualmente vazia!')
     elif op == 3:
@@ -100,3 +119,7 @@ while True:
                 if int(mes_aniv) == mes_atual:
                     print(f'Nome: {formatado[0]}\nNúmero: {formatado[1]}\nAniversário: '
                           f'{dia_aniv}/{mes_aniv}/{ano_aniv}\n')
+    elif op == 7:
+        break
+    else:
+        continue

@@ -30,10 +30,10 @@ if existe:
                     quant_caracteres += 1
                     quant_letras[caractere.lower()] += 1
 
-print(f'Quantidade de linhas: {quant_linhas}\nQuantidade de Palavras: {quant_palavras}'
-      f'\nQuantidade de caracteres: {quant_caracteres}')
+    print(f'Quantidade de linhas: {quant_linhas}\nQuantidade de Palavras: {quant_palavras}'
+          f'\nQuantidade de caracteres: {quant_caracteres}')
 
-print('Ocorrencia das letras:')
-for k, v in quant_letras.items():
-    if v != 0:
-        print(f'Letra "{k}": {v}')
+    print('Ocorrencia das letras:')
+    for k, v in quant_letras.items():
+        if v != 0:
+            print(f'Letra "{k}" apareceu {v} vez(es)')
