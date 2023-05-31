@@ -5,25 +5,30 @@ class Empregado:
         if salario < 0:
             salario = 0.0
         self.salario = salario
+        self.historico_salarial = [salario] * 12
+        self.salario_anual = sum(self.historico_salarial)
 
-    def get_nome(self):
-        return self.nome
+    def alt_salarial(self, valor, mes, mudanca_permanente):
+        """mudanca_permanente: Boolean"""
+        if mudanca_permanente:
+            for i in range(mes-1, len(self.historico_salarial)):
+                self.historico_salarial[i] = valor
+        else:
+            self.historico_salarial[mes - 1] = valor
 
-    def get_fone(self):
-        return self.fone
+    def get_nome(self): return self.nome
 
-    def get_salario(self):
-        return self.salario
+    def get_fone(self): return self.fone
 
-    def set_nome(self, novo_nome):
-        self.nome = novo_nome
+    def get_salario(self): return self.salario
 
-    def set_fone(self, novo_fone):
-        self.fone = novo_fone
+    def set_nome(self, novo_nome): self.nome = novo_nome
+
+    def set_fone(self, novo_fone): self.fone = novo_fone
 
     def set_salario(self, novo_salario):
         if novo_salario < 0:
-            novo_salario = 0.0
+            novo_salario = 0.00
         self.salario = novo_salario
 
 
@@ -58,3 +63,7 @@ for c in lista_empregados:
 
 print(f'Salário de {empregado_1.get_nome()} após 10% de aumento: R$ {empregado_1.get_salario():.2f}')
 print(f'Salário de {empregado_2.get_nome()} após 10% de aumento: R$ {empregado_2.get_salario():.2f}')
+
+
+empregado_1.alt_salarial(2000, 5, True)
+
