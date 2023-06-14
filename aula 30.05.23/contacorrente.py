@@ -6,7 +6,7 @@ class ContaCorrente:
         self.numero = num
         self.agencia = agencia
         self.titular = titular
-        self.saldo = saldo
+        self.__saldo = saldo
 
     def sacar(self, valor) -> bool:
         if self.saldo >= valor:

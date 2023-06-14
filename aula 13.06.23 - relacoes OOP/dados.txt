@@ -1,0 +1,8 @@
+123 mouse 30.00
+234 teclado 100.00
+345 ssd 200.00
+456 hd 150.00
+567 smartphone 1190.00
+678 carregador 160.0
+789 bateria 300.00
+890 pendrive 50.00
