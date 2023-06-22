@@ -63,4 +63,4 @@ while True:
         conta.transferir(conta, contas[conta_destino], valor)
 
     else:
-        pass
+        continue
