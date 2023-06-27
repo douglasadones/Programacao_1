@@ -55,7 +55,7 @@ class Conta:
             print("Falha na Operação!")
             return False
 
-    def sacar(self, valor):
+    def sacar(self, valor) -> bool:
         if valor <= self.get_saldo():
             self.adicionado_historico(valor, "SA")
             self.set_saldo(self.get_saldo() - valor)
