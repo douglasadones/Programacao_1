@@ -1,4 +1,5 @@
 from historico import Historico
+from cliente import Cliente
 
 
 class Conta:
@@ -6,6 +7,7 @@ class Conta:
         self.__numero = numero
         self.__saldo = saldo
         self.__titular = titular
+        self.__cliente = []
         self.__historico = []
 
     def get_numero(self):
@@ -29,12 +31,19 @@ class Conta:
         if isinstance(valor, str):
             self.__titular = valor
 
+    def get_cliente(self):
+        return self.__cliente
+
+    def set_cliente(self, valor):
+        if isinstance(valor, Cliente):
+            self.__cliente.append(valor)
+
     def get_historico(self):
         return self.__historico
 
     def set_historico(self, valor):
         if isinstance(valor, Historico):
-            self.__historico = valor
+            self.__historico.append(valor)
 
     def adicionado_historico(self, operacao, valor):
         self.__historico.append(Historico(self.get_numero(), valor, operacao))
@@ -77,3 +86,13 @@ class Conta:
             print(f"Valor: {c.valor:8.2f}")
             print(f"Data: {c.data}")
         print("==========================")
+
+    def info_cliente(self):
+        for c in self.__cliente:
+            print(f"Nome: {c.get_nome()}")
+            print(f"CPF: {c.get_cpf()}")
+            print(f"Cidade: {c.get_cidade()}")
+            print(f"UF: {c.get_uf()}")
+            print("Endereços Cadastrados:")
+            for e in c.get_endereco():
+                print(e)
