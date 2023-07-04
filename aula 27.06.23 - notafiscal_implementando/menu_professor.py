@@ -21,14 +21,14 @@ def pesquisar_agencia(agencias, numero):
 
 def menu():
     while True:
-        print("\n############ MENU PRINCIPAL ############")
-        print("1. Cadastrar Agencia        2. Mostrar Agencias")
-        print("2. Mostrar Contas existentes 3. Criar conta")
-        print("4. Criar Conta               5. Mostrar Saldo")
-        print("6. Depósitar                 7. Sacar Valor")
-        print("8. Transferência             9. Extrato da Conta")
-        print("10. Informações do cliente   0. Sair")
-        print("---------------------------------------")
+        print("\n################### MENU PRINCIPAL ###################")
+        print("1. Cadastrar Agencia          2.  Mostrar Agencias")
+        print("3. Mostrar Contas existentes  4.  Criar uma conta")
+        print("5. Mostrar Saldo              6.  Depositar")
+        print("7. Sacar Valor                8.  Transferência")
+        print("9. Extrato da Conta           10. Informações do cliente")
+        print("0. Sair")
+        print("--------------------------------------------------------")
         op = int(input("Digite sua opção -> "))
         if 0 <= op <= 10:
             return op
@@ -71,11 +71,12 @@ def principal():
 
         elif op == 2:
             if len(agencias) == 0:
+                print()
                 print('----- NENHUMA AGENCIA CADASTRADA -----')
             else:
-               print("------- AGENCIAS CADASTRADAS -------")
-               for c in agencias:
-                   print(f"Nome da agencia: {c.get_numero()}")
+                print("------- AGENCIAS CADASTRADAS -------")
+                for c in agencias:
+                    print(f"Número da agencia: {c.get_numero()}")
 
         elif op == 3:
             print("#### CONTAS CADASTRADAS ####")
@@ -211,9 +212,11 @@ def principal():
                 conta.extrato()
         elif op == 10:
             print("##### INFORMAÇÕES DO CLIENTE #####")
-            num = int(input("Número da conta: "))
-            conta = pesquisar_conta(contas, num)
-            if conta:
+            ag = int(input("Número da Agencia: "))
+            co = int(input("Número da Conta: "))
+            agencia = pesquisar_conta(agencias, ag)
+            conta = pesquisar_conta(contas, co)
+            if agencia and conta:
                 conta.info_cliente()
         else:
             print("\n##### OPÇÃO INVÁLIDA #####\n")
