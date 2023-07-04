@@ -50,8 +50,8 @@ def principal():
             print("#### CADASTRANDO UMA AGENCIA ####")
             numero = randint(1000, 9999)
             nome = input("Nome da agencia: ").upper()
-            cidade = input("Informe a cidade: ")
-            uf = input("informe o uf: ")
+            cidade = input("Informe a cidade: ").capitalize()
+            uf = input("informe o uf: ").upper()
             enderecos = []
             c = 1
             while True:
@@ -71,62 +71,58 @@ def principal():
 
         elif op == 2:
             if len(agencias) == 0:
-                print()
-                print('----- NENHUMA AGENCIA CADASTRADA -----')
+                print('\n----- NENHUMA AGENCIA CADASTRADA -----')
             else:
-                print("------- AGENCIAS CADASTRADAS -------")
+                print("\n------- AGENCIAS CADASTRADAS -------")
                 for c in agencias:
                     print(f"Número da agencia: {c.get_numero()}")
 
         elif op == 3:
             print("#### CONTAS CADASTRADAS ####")
             ag = int(input("Número da Agencia: "))
-            co = int(input("Número da Conta: "))
             agencia = pesquisar_conta(agencias, ag)
-            conta = pesquisar_conta(contas, co)
-            if agencia and conta:
-                conta.mostrar_saldo()
+            if agencia:
+                agencia.get_conta()
             else:
-                if not agencia and not conta:
-                    print('Agencia e conta Inexistente')
-                elif not agencia:
-                    print('Agencia Inexistente!')
-                else:
-                    print('Conta Inexistente!')
+                print('Agencia Inexistente')
 
         elif op == 4:
             print("#### CRIANDO UMA CONTA ####")
             numero = randint(1000, 9999)
-            titular = input("Nome do cliente: ").upper()
-            print("#### SOBRE O CLIENTE ####")
-            cpf = int(input('Informe o CPF: '))
-            cidade = input("Informe a cidade: ")
-            uf = input("informe o uf: ")
-            enderecos = []
-            c = 1
-            while True:
-                print("Informe seu(s) endereço(s) - (enter para encerrar)")
-                endereco = input(f'{c}º Endereço: ')
-                if endereco == "":
-                    break
+            ag = int(input("Número da Agencia: "))
+            agencia = pesquisar_conta(agencias, ag)
+            if agencia:
+                titular = input("Nome do cliente: ").upper()
+                print("#### SOBRE O CLIENTE ####")
+                cpf = int(input('Informe o CPF: '))
+                cidade = input("Informe a cidade: ")
+                uf = input("informe o uf: ")
+                enderecos = []
+                c = 1
+                while True:
+                    print("Informe seu(s) endereço(s) - (enter para encerrar)")
+                    endereco = input(f'{c}º Endereço: ')
+                    if endereco == "":
+                        break
+                    else:
+                        enderecos.append(endereco)
+                        c += 1
+                print("Cadastro Realizado com sucesso!")
+                try:
+                    valor = float(input("Saldo inicial: "))
+                except:
+                    print("Valor inválido!")
+                    print("Criando conta com saldo: R$ 0.00")
+                    valor = 0.00
                 else:
-                    enderecos.append(endereco)
-                    c += 1
-            print("Cadastro Realizado com sucesso!")
-            try:
-                valor = float(input("Saldo inicial: "))
-            except:
-                print("Valor inválido!")
-                print("Criando conta com saldo: R$ 0.00")
-                valor = 0.00
-            else:
-                contas.append(Conta(numero, valor, titular))
-                c1 = Cliente(cpf, titular, cidade, uf)
-                for c in enderecos:
-                    c1.set_endereco(c)
-                contas[-1].set_cliente(c1)
-                contas[-1].mostrar_saldo()
-                print(f"Conta {numero} criada com sucesso!")
+                    contas.append(Conta(numero, valor, titular))
+                    c1 = Cliente(cpf, titular, cidade, uf)
+                    for c in enderecos:
+                        c1.set_endereco(c)
+                    contas[-1].set_cliente(c1)
+                    contas[-1].mostrar_saldo()
+                    agencias[-1].set_conta(c1)
+                    print(f"Conta {numero} criada com sucesso!")
         elif op == 5:
             print("##### SALDO EM CONTA #####")
             ag = int(input("Número da Agencia: "))

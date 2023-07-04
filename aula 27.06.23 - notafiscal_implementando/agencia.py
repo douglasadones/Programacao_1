@@ -13,6 +13,9 @@ class Agencia:
     def get_conta(self):
         return self.conta
 
+    def set_conta(self, conta):
+        self.conta.append(conta)
+
     def set_numero(self, valor):
         if isinstance(valor, int):
             self.numero = valor
