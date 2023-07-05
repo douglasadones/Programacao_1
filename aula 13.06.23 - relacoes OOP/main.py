@@ -28,3 +28,7 @@ if __name__ == '__main__':
             nf.inserir_produto(produto)
     nf.emitir_cupom()
 
+    del nf
+    print('---------------')
+    print('FIM DO PROGRAMA')
+    print('---------------')
