@@ -41,16 +41,14 @@ def extraindo_retangulos(varetas_restantes):
 
 
 varetas, quant_de_comprimentos = extraindo_dados('entrada.txt')
-print(varetas)
-print(quant_de_comprimentos)
-
-
-for caso in varetas:
-    quant_quadrados, varetas_restantes = extraindo_quadrados(caso)
-    if not varetas_restantes:
-        print(quant_quadrados)
+for num, c in enumerate(quant_de_comprimentos):
+    if c != 0:
+        quant_quadrados, varetas_restantes = extraindo_quadrados(varetas[num])
+        if not varetas_restantes:
+            print(quant_quadrados)
+        else:
+            quant_retangulos = extraindo_retangulos(varetas_restantes)
+            print(quant_quadrados + quant_retangulos)
     else:
-        quant_retangulos = extraindo_retangulos(varetas_restantes)
-        print(quant_quadrados + quant_retangulos)
-
-varetas, quant_de_comprimentos = extraindo_dados('entrada.txt')
+        print('---')
+        break
