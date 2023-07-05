@@ -4,7 +4,11 @@ from random import randint
 class Agencia:
     def __init__(self, nome: str, cidade: str, uf: str):
         self.conta = []
+<<<<<<< HEAD
         self.numero = self.gerador_numero()
+=======
+        self.numero = self.gerador_num()
+>>>>>>> 04ea65a695cf534a5ea044b9dc1bdb32477525ef
         self.nome = nome
         self.endereco = []
         self.cidade = cidade
@@ -12,6 +16,9 @@ class Agencia:
 
     def get_conta(self):
         return self.conta
+
+    def set_conta(self, conta):
+        self.conta.append(conta)
 
     def set_numero(self, valor):
         if isinstance(valor, int):
@@ -49,5 +56,10 @@ class Agencia:
             self.uf = valor
 
     @staticmethod
+<<<<<<< HEAD
     def gerador_numero():
         return randint(10, 99)
+=======
+    def gerador_num():
+        return randint(10, 99)
+>>>>>>> 04ea65a695cf534a5ea044b9dc1bdb32477525ef
